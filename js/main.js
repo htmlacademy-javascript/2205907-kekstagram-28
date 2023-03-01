@@ -102,5 +102,6 @@ const getPhotoInfo = function () {
   };
 };
 
-const severalPhotosData = Array.from({length: 25}, getPhotoInfo);
+getPhotoInfo();
+// const severalPhotosData = Array.from({length: 25}, getPhotoInfo);
 //Можно вызывать severalPhotosData через console.log(severalPhotosData);
