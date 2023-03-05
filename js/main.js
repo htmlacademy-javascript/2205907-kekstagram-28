@@ -64,7 +64,5 @@ const getPhotoInfo = function () {
   };
 };
 
-// getPhotoInfo();
-const SEVERAL_PHOTOS_DATA = Array.from({length: 25}, getPhotoInfo);
+// const SEVERAL_PHOTOS_DATA = Array.from({length: 25}, getPhotoInfo);
 //Можно вызывать SEVERAL_PHOTOS_DATA через console.log(SEVERAL_PHOTOS_DATA);
-// console.log(SEVERAL_PHOTOS_DATA);
