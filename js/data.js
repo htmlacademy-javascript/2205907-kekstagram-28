@@ -22,7 +22,7 @@ const jpgGenerator = photoUrlGenerator('jpg'); // As there are 25 photos existed
 const svgGenerator = avatarUrlGenerator('svg');// As there are 6 avatar existed
 
 //Function creates an object with necessary data
-let currentNumber = 0;
+let currentNumber = -1;
 const getPhotoInfo = () => {
   currentNumber += 1;
   const currentId = currentNumber;
