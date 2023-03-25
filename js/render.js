@@ -22,3 +22,4 @@ otherUsersPhoto.forEach((photo) => {
 
 photoList.appendChild(photoListFragment);
 
+export {otherUsersPhoto};
