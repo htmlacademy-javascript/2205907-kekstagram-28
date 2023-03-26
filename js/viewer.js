@@ -34,22 +34,15 @@ for (let i = 0; i < photos.length; i++) {
   });
 }
 
-currentViewedImage.src = otherUsersPhoto[2].url;
-currentLikesNumber.textContent = otherUsersPhoto[2].likes;
-currentCommentNumber.textContent = currentPhotoCommentsNumber.length;
-commentAvatar.src = otherUsersPhoto[2].comments.avatar;
-commentAvatar.alt = otherUsersPhoto[2].comments.name;
-commentText.textContent = otherUsersPhoto[2].comments.message;
-photoDescription.textContent = otherUsersPhoto[2].description;
-
-
 backToAllView.addEventListener('click' , () => {
   fullSizeView.classList.add('hidden');
+  document.body.classList.remove('modal-open');
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.keyCode === 27) {
     evt.preventDefault();
     fullSizeView.classList.add('hidden');
+    document.body.classList.remove('modal-open');
   }
 });
