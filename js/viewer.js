@@ -16,13 +16,13 @@ const commentText = currentPhotoCommentsList.querySelector('.social__text');
 const photoDescription = document.querySelector('.social__caption');
 const photos = document.querySelectorAll('.picture');
 const commentShowMore = document.querySelector('.social__comments-loader');
-
+const COMMEN_LOAD_STEP = 5;
 
 const commentsLength = document.querySelectorAll('.social__comment').length;
 const arrayOfPhotoComments = Array.from(currentPhotoCommentsNumber);
 // const shownArrayofComments = arrayOfPhotoComments.slice(5, currentPhotoCommentsList.length);
 
-const shownArrayofComments = arrayOfPhotoComments.slice(0, 5);
+const shownArrayofComments = arrayOfPhotoComments.slice(0, COMMEN_LOAD_STEP);
 const currentCommentShownNumber = document.querySelector('.social__comment-count');
 
 let currentCommentsShown = 0;
@@ -32,7 +32,7 @@ arrayOfPhotoComments.forEach((el) => el.classList.add('hidden'));
 for (let i = 0; i < photos.length; i++) {
   photos[i].addEventListener('click', (evt) => {
     evt.preventDefault();
-    currentCommentsShown += 5;
+    currentCommentsShown += COMMEN_LOAD_STEP;
     fullSizeView.classList.remove('hidden');
     document.body.classList.add('modal-open');
 
@@ -54,7 +54,7 @@ backToAllView.addEventListener('click' , () => {
   arrayOfPhotoComments.forEach((el) => el.classList.add('hidden'));
   commentShowMore.classList.remove('hidden');
   currentCommentsShown = 0;
-  currentCommentShownNumber.textContent = `${currentCommentsShown + 5} из ${arrayOfPhotoComments.length} комментариев`;
+  currentCommentShownNumber.textContent = `${currentCommentsShown + COMMEN_LOAD_STEP} из ${arrayOfPhotoComments.length} комментариев`;
 });
 
 document.addEventListener('keydown', (evt) => {
@@ -65,13 +65,13 @@ document.addEventListener('keydown', (evt) => {
     arrayOfPhotoComments.forEach((el) => el.classList.add('hidden'));
     commentShowMore.classList.remove('hidden');
     currentCommentsShown = 0;
-    currentCommentShownNumber.textContent = `${currentCommentsShown + 5} из ${arrayOfPhotoComments.length} комментариев`;
+    currentCommentShownNumber.textContent = `${currentCommentsShown + COMMEN_LOAD_STEP} из ${arrayOfPhotoComments.length} комментариев`;
   }
 });
 
 
 commentShowMore.addEventListener('click', () => {
-  currentCommentsShown += 5;
+  currentCommentsShown += COMMEN_LOAD_STEP;
   // currentCommentsShown.max = arrayOfPhotoComments.length;
 
   const commentsShown = arrayOfPhotoComments.slice(0, currentCommentsShown);
