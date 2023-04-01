@@ -18,17 +18,17 @@ const createCommentTemplate = () => {
   commentList.appendChild(newCommenItem);
 };
 
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
-createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
+// createCommentTemplate();
 
 const deleteComment = () => {
   const allComments = document.querySelector('.social__comment');
