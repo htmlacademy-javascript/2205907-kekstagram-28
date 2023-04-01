@@ -45,6 +45,11 @@ for (let i = 0; i < photos.length; i++) {
     commentAvatar.alt = otherUsersPhoto[i].comments.name;
     commentText.textContent = otherUsersPhoto[i].comments.message;
     photoDescription.textContent = otherUsersPhoto[i].description;
+
+    if (currentPhotoCommentsNumber.length <= COMMEN_LOAD_STEP) {
+      currentCommentShownNumber.textContent = `${arrayOfPhotoComments.length} из ${arrayOfPhotoComments.length} комментариев`;
+      commentShowMore.classList.add('hidden');
+    }
   });
 }
 
