@@ -9,6 +9,10 @@ const commentInput = commentWrapper.querySelector('textarea');
 const uploadPhotoForm = document.querySelector('.img-upload__form');
 const hashTagText = uploadPhotoForm.querySelector('.text__hashtags');
 
+const COMMENT_LENGTH = 140;
+const HASHTAG_LENGTH = 19;
+const COMMENT_NUMBER_ALLOWED = 5;
+
 imgUpload.addEventListener('change', (evt) => {
   evt.preventDefault();
 
@@ -57,13 +61,13 @@ const pristineComment = new Pristine(uploadPhotoForm, {
 });
 
 function validateComment (value) {
-  return value.length <= 140;
+  return value.length <= COMMENT_LENGTH;
 }
 
 pristineComment.addValidator(
   uploadPhotoForm.querySelector('.text__description'),
   validateComment,
-  'Максимальная длина 140 символов'
+  `Максимальная длина ${COMMENT_LENGTH} символов`
 );
 
 uploadPhotoForm.addEventListener('submit', (evt) => {
@@ -86,9 +90,8 @@ function validateTagHead (value) {
   for(let i = 0; i < splitedTags.length; i++) {
     if (splitedTags[i].startsWith('#', splitedTags)) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 }
 
@@ -102,14 +105,13 @@ function validateTagLength (value) {
   const splitedTags = value.split(' #');
 
   if (splitedTags.length === 1) {
-    return splitedTags[0].length <= 19;
+    return splitedTags[0].length <= HASHTAG_LENGTH;
   } else {
     for (let i = 0; i < splitedTags.length; i++) {
-      if (splitedTags[i].length > 19) {
+      if (splitedTags[i].length > HASHTAG_LENGTH) {
         return false;
-      } else {
-        return true;
       }
+      return true;
     }
   }
 }
@@ -146,7 +148,7 @@ pristineComment.addValidator(
 
 function validateTagsNumber (value) {
   const splitedTags = value.split(' #');
-  if (splitedTags.length > 5) {
+  if (splitedTags.length > COMMENT_NUMBER_ALLOWED) {
     return false;
   }
   return true;
@@ -155,7 +157,7 @@ function validateTagsNumber (value) {
 pristineComment.addValidator(
   hashTagText,
   validateTagsNumber,
-  'Кол-во тегов не может быть больше 5'
+  `Кол-во тегов не может быть больше ${COMMENT_NUMBER_ALLOWED}`
 );
 
 uploadPhotoForm.addEventListener('submit', (evt) => {
